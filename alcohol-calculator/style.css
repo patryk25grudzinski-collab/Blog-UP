@@ -1,0 +1,108 @@
+/* 1. Global Box-Sizing Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #1e1e1e;
+    font-family: Arial, sans-serif;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+    padding: 40px 0; /* Prevents content clipping on smaller screens when results expand */
+}
+
+.container {
+    background: #2d2d2d;
+    padding: 30px;
+    border-radius: 15px;
+    width: 100%;       /* Makes it responsive */
+    max-width: 420px;  /* Keeps it from getting too wide on desktop */
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #b3b3b3; /* Slightly softer white for better visual hierarchy */
+}
+
+/* 2. Unified Input and Select Styling */
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    background: #404040; /* Darker fields to match dark mode theme */
+    color: white;
+    border: 1px solid #555;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Clear focus states for accessibility */
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #27ae60;
+    box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2);
+}
+
+button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #27ae60;
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    
+    /* Smooth hover transitions */
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+    background: #219150;
+}
+
+button:active {
+    transform: scale(0.98); /* Micro-interaction when clicked */
+}
+
+#result {
+    margin-top: 25px;
+    padding: 15px;
+
+    background: #3a3a3a;
+    border-radius: 10px;
+
+    min-height: 80px;
+    border-left: 4px solid #27ae60; /* Visual accent line for results */
+}
+
+/* Optional styling helper if you use driveResult wrapper */
+#driveResult {
+    margin-top: 15px;
+    padding: 15px;
+    background: #3a3a3a;
+    border-radius: 10px;
+}

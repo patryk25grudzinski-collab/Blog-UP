@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Patryk Grudziński</title>
+    <style>
+        /* --- RESET AND GLOBAL STYLES --- */
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #0f172a 100%);
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --accent-color: #f97316; /* Perfect Orange */
+            --accent-hover: #ea580c;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg-gradient);
+            background-attachment: fixed;
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 0 20px;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+        }
+
+        /* --- HEADER --- */
+        header {
+            max-width: 1200px;
+            margin: 40px auto 20px auto;
+            text-align: left;
+            padding: 0 10px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+        }
+
+        header p {
+            color: #94a3b8;
+            font-size: 1.25rem;
+            margin-top: 8px;
+            font-weight: 400;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
+            background: #151f32; 
+            padding: 18px 24px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        nav a {
+            color: #94a3b8;
+            font-weight: 600;
+            font-size: 1.05rem;
+            display: inline-block;
+            padding: 4px 0;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        /* Highlight the Contact button on this page */
+        nav a.nav-btn-active {
+            color: #ffffff;
+            border: 2px solid var(--accent-color) !important;
+            background: rgba(249, 115, 22, 0.1);
+            border-radius: 8px;
+            padding: 6px 16px;
+            margin-left: 5px;
+        }
+
+        /* --- MAIN LAYOUT CONTAINER (GRID) --- */
+        .wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.8fr 1.2fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        /* --- CONTACT FORM --- */
+        .contact-form-section {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-form-section h2 {
+            font-size: 2rem;
+            color: #0f172a;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .contact-form-section > p {
+            color: #64748b;
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 8px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            color: #1e293b;
+            background: #f8fafc;
+            transition: all 0.2s ease;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+        }
+
+        .submit-btn {
+            background: var(--accent-color);
+            color: #ffffff;
+            border: none;
+            padding: 14px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent-hover);
+        }
+
+        /* --- INFO SIDEBAR --- */
+        .info-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            padding: 35px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.15);
+        }
+
+        .info-card h3 {
+            font-size: 1.3rem;
+            color: #0f172a;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #f1f5f9;
+        }
+
+        .info-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        .info-item {
+            margin-bottom: 20px;
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-item label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #94a3b8;
+            margin-bottom: 4px;
+        }
+
+        .info-item p, .info-item a {
+            font-size: 1.05rem;
+            color: #334155;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        /* --- FOOTER --- */
+        footer.main-footer {
+            max-width: 1200px;
+            margin: 60px auto 30px auto;
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        footer.main-footer p {
+            margin-bottom: 8px;
+        }
+
+        /* --- RESPONSIVENESS --- */
+        @media (max-width: 900px) {
+            .wrapper {
+                grid-template-columns: 1fr;
+            }
+            header h1 {
+                font-size: 2.2rem;
+            }
+            nav ul {
+                gap: 15px;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header>
+        <h1>Get In Touch</h1>
+        <p>Let's connect and build something awesome together</p>
+    </header>
+
+    <!-- ================= NAVIGATION ================= -->
+    <nav>
+        <ul>
+            <li><a href="blogup.html">Home</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html" class="nav-btn-active">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- MAIN GRID CONTAINER -->
+    <div class="wrapper">
+
+        <!-- ================= CONTACT FORM ================= -->
+        <main class="contact-form-section">
+            <h2>Send a Message</h2>
+            <p>Got a question or want to collaborate? Drop a line below!</p>
+            
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" placeholder="Hi Patryk, let's connect..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    Send Message &rarr;
+                </button>
+            </form>
+        </main>
+
+        <!-- ================= INFO SIDEBAR ================= -->
+        <aside class="info-sidebar">
+            <section class="info-card">
+                <h3>Contact Details</h3>
+                
+                <div class="info-item">
+                    <label>Name</label>
+                    <p>Patryk Grudziński</p>
+                </div>
+
+                <div class="info-item">
+                    <label>Email</label>
+                    <p><a href="mailto:patryk25grudzinski@gmail.com">patryk25grudzinski@gmail.com</a></p>
+                </div>
+
+                <div class="info-item">
+                    <label>Phone</label>
+                    <p><a href="tel:07539282145">07539282145</a></p>
+                </div>
+
+                <div class="info-item">
+                    <label>Address</label>
+                    <p>34 Elmer Gardens<br>TW7 6HB, Isleworth</p>
+                </div>
+            </section>
+        </aside>
+
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="main-footer">
+        <p>© 2026 Patryk Grudziński. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Patryk Grudziński</title>
+    <style>
+        /* --- RESET AND GLOBAL STYLES --- */
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #0f172a 100%);
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --accent-color: #f97316; /* Perfect Orange */
+            --accent-hover: #ea580c;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg-gradient);
+            background-attachment: fixed;
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 0 20px;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+        }
+
+        /* --- HEADER --- */
+        header {
+            max-width: 1200px;
+            margin: 40px auto 20px auto;
+            text-align: left;
+            padding: 0 10px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+        }
+
+        header p {
+            color: #94a3b8;
+            font-size: 1.25rem;
+            margin-top: 8px;
+            font-weight: 400;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
+            background: #151f32; 
+            padding: 18px 24px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        nav a {
+            color: #94a3b8;
+            font-weight: 600;
+            font-size: 1.05rem;
+            display: inline-block;
+            padding: 4px 0;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        nav li.active a {
+            color: #ffffff;
+            border-bottom: 3px solid var(--accent-color); 
+            padding-bottom: 6px;
+            margin-bottom: -3px;
+        }
+
+        nav a.nav-btn {
+            color: #94a3b8;
+            border: 1px solid #94a3b8;
+            border-radius: 8px;
+            padding: 6px 16px;
+            margin-left: 5px;
+            transition: all 0.2s ease;
+        }
+
+        nav a.nav-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+
+        /* --- MAIN LAYOUT CONTAINER (GRID) --- */
+        .wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2.2fr 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        /* --- BIOGRAPHY MAIN SECTION --- */
+        .about-main {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-main h2 {
+            font-size: 2rem;
+            color: #0f172a;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .about-main p {
+            color: #475569;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .about-main ul {
+            list-style-type: none;
+            margin: 25px 0;
+        }
+
+        .about-main ul li {
+            color: #475569;
+            font-size: 1.05rem;
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .about-main ul li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* --- SIDEBAR --- */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        aside section {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.15);
+        }
+
+        .profile {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 5px;
+        }
+
+        .profile .avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #f1f5f9;
+        }
+
+        .profile-title h4 {
+            font-size: 1.1rem;
+            color: #0f172a;
+            font-weight: 600;
+        }
+
+        .profile-title .role {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .profile-bio {
+            color: #475569;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* --- FOOTER --- */
+        footer.main-footer {
+            max-width: 1200px;
+            margin: 60px auto 30px auto;
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        footer.main-footer p {
+            margin-bottom: 8px;
+        }
+
+        /* --- RESPONSIVENESS --- */
+        @media (max-width: 900px) {
+            .wrapper {
+                grid-template-columns: 1fr;
+            }
+            header h1 {
+                font-size: 2.2rem;
+            }
+            nav ul {
+                gap: 15px;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header>
+        <h1>About Me</h1>
+        <p>My journey, background, and passion for technology</p>
+    </header>
+
+    <!-- ================= NAVIGATION ================= -->
+    <nav>
+        <ul>
+            <li><a href="blogup.html">Home</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li class="active"><a href="about.html">About</a></li>
+            <li><a href="contact.html" class="nav-btn">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- MAIN CONTAINER -->
+    <div class="wrapper">
+
+        <!-- ================= BIOGRAPHY MAIN SECTION ================= -->
+        <main class="about-main">
+            <h2>Who I Am</h2>
+            <p>
+                Hello! My name is Patryk Grudziński. I am a dedicated Computer Science student with a profound passion for exploring the endless capabilities of web development, engineering intelligent systems, and learning machine learning models.
+            </p>
+            <p>
+                My path into programming started out with a curiosity about how modern, interactive web applications are structured and maintained. Over time, that simple curiosity evolved into a complete skill set focusing on creating high-performance, clean layouts that optimize accessibility and SEO values.
+            </p>
+
+            <h2>Technical Focus & Interests</h2>
+            <p>
+                Currently, I am expanding my development stack every single day, keeping a solid routine of disciplined practice. My current primary focuses are:
+            </p>
+            <ul>
+                <li>Building responsive, semantic, and modern web applications using clean code principles.</li>
+                <li>Developing interactive and reactive front-end modules.</li>
+                <li>Diving deep into Machine Learning algorithms and data engineering processing pipelines.</li>
+                <li>Creating functional and scalable real-world programming projects.</li>
+            </ul>
+            <p>
+                I firmly believe that every technology expert was once an absolute beginner. Through steady, daily execution and trial, I am continuing to shape my engineering profile to tackle enterprise problems.
+            </p>
+        </main>
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside>
+            <section class="profile">
+                <div class="profile-header">
+                    <img src="Patryk.jpeg" alt="Photo of Patryk Grudziński" class="avatar">
+                    <div class="profile-title">
+                        <h4>Patryk Grudziński</h4>
+                        <p class="role">Computer Science Student</p>
+                    </div>
+                </div>
+                <p class="profile-bio">
+                    I am a computer science student passionate about web development,
+                    machine learning, and building real-world projects.
+                </p>
+            </section>
+        </aside>
+
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="main-footer">
+        <p>© 2026 Patryk Grudziński. All rights reserved.</p>
+        <p>
+            Follow me:
+            <a href="#">LinkedIn</a> |
+            <a href="#">GitHub</a>
+        </p>
+    </footer>
+
+</body>
+</html>

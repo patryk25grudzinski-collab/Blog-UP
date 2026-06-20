@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tech & Learning Blog</title>
+    <style>
+        /* --- RESET AND GLOBAL STYLES --- */
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #0f172a 100%);
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --accent-color: #f97316; /* Perfect Orange */
+            --accent-hover: #ea580c;
+            --nav-bg: rgba(30, 41, 59, 0.7);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg-gradient);
+            background-attachment: fixed;
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 0 20px;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+        }
+
+        /* --- HEADER --- */
+        header {
+            max-width: 1200px;
+            margin: 40px auto 20px auto;
+            text-align: left;
+            padding: 0 10px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+        }
+
+        header p {
+            color: #94a3b8;
+            font-size: 1.25rem;
+            margin-top: 8px;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
+            background: #151f32; 
+            padding: 18px 24px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        nav a {
+            color: #94a3b8;
+            font-weight: 600;
+            font-size: 1.05rem;
+            display: inline-block;
+            padding: 4px 0;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        nav li.active a {
+            color: #ffffff;
+            border-bottom: 3px solid var(--accent-color); 
+            padding-bottom: 6px;
+            margin-bottom: -3px;
+        }
+
+        nav a.nav-btn {
+            color: #ffffff;
+            border: 1px solid #ffffff;
+            border-radius: 8px;
+            padding: 6px 16px;
+            margin-left: 5px;
+            transition: all 0.2s ease;
+        }
+
+        nav a.nav-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* --- MAIN LAYOUT CONTAINER (GRID) --- */
+        .wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2.2fr 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        /* --- ARTICLES --- */
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        article {
+            background: var(--card-bg);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.15);
+            transition: transform 0.2s ease;
+        }
+
+        article:hover {
+            transform: translateY(-2px);
+        }
+
+        .article-content {
+            padding: 40px;
+        }
+
+        article h2 {
+            font-size: 2rem;
+            color: #0f172a;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        article p {
+            color: #475569;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        article blockquote {
+            background: #f8fafc;
+            border-left: 4px solid var(--accent-color);
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #334155;
+            border-radius: 0 8px 8px 0;
+        }
+
+        article footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #f1f5f9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        article time {
+            font-size: 0.95rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .read-more {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        /* --- SIDEBAR --- */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        aside section {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.15);
+        }
+
+        aside h3 {
+            font-size: 1.25rem;
+            color: #0f172a;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #f1f5f9;
+        }
+
+        aside h3::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        .profile {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 5px;
+        }
+
+        .profile .avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #f1f5f9;
+        }
+
+        .profile-title h4 {
+            font-size: 1.1rem;
+            color: #0f172a;
+            font-weight: 600;
+        }
+
+        .profile-title .role {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .profile-bio {
+            color: #475569;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        aside ul.recent-posts {
+            list-style: none;
+        }
+
+        aside ul.recent-posts li {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #f8fafc;
+            padding-bottom: 10px;
+        }
+
+        aside ul.recent-posts li:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        aside ul.recent-posts a {
+            color: #334155;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        aside ul.recent-posts a:hover {
+            color: var(--accent-color);
+        }
+
+        .tags-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tags-cloud a {
+            background: #f1f5f9;
+            color: #475569;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .tags-cloud a:hover {
+            background: var(--accent-color);
+            color: #ffffff;
+        }
+
+        /* --- FOOTER --- */
+        footer.main-footer {
+            max-width: 1200px;
+            margin: 60px auto 30px auto;
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        footer.main-footer p {
+            margin-bottom: 8px;
+        }
+
+        footer.main-footer a {
+            color: #cbd5e1;
+        }
+        footer.main-footer a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- RESPONSIVENESS --- */
+        @media (max-width: 900px) {
+            .wrapper {
+                grid-template-columns: 1fr;
+            }
+            header h1 {
+                font-size: 2.2rem;
+            }
+            nav ul {
+                gap: 15px;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header>
+        <h1>My Tech & Learning Blog</h1>
+        <p>Sharing my journey in web development and programming</p>
+    </header>
+
+    <!-- ================= NAVIGATION ================= -->
+    <nav>
+        <ul>
+            <li class="active"><a href="blogup.html">Home</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="Projects.html">Projects</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html" class="nav-btn">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- MAIN CONTAINER -->
+    <div class="wrapper">
+
+        <!-- ================= MAIN CONTENT ================= -->
+        <main>
+            <!-- Blog Post 1 -->
+            <article>
+                <div class="article-content">
+                    <h2>Understanding HTML Semantic Elements</h2>
+                    <p>
+                        HTML is not just about structure, but meaning. Semantic elements
+                        help browsers and developers understand the role of each section.
+                    </p>
+                    <p>
+                        Using elements like <strong>&lt;article&gt;</strong> and
+                        <strong>&lt;section&gt;</strong> improves accessibility and SEO.
+                    </p>
+                    <footer>
+                        <time datetime="2026-06-18">18 June 2026</time>
+                        <a href="blog.html" class="read-more">Read more &rarr;</a>
+                    </footer>
+                </div>
+            </article>
+
+            <!-- Blog Post 2 -->
+            <article>
+                <div class="article-content">
+                    <h2>My Journey Learning Web Development</h2>
+                    <p>
+                        I started learning HTML, CSS, and JavaScript recently, and
+                        it has completely changed how I see websites.
+                    </p>
+                    <blockquote>
+                        "Every expert was once a beginner."
+                    </blockquote>
+                    <p>
+                        Consistency is the key to becoming a good developer.
+                        <em>Practice every day!</em>
+                    </p>
+                    <footer>
+                        <time datetime="2026-06-10">10 June 2026</time>
+                        <a href="blog.html" class="read-more">Read more &rarr;</a>
+                    </footer>
+                </div>
+            </article>
+
+            <!-- Blog Post 3 -->
+            <article>
+                <div class="article-content">
+                    <h2>Why JavaScript Matters</h2>
+                    <p>
+                        JavaScript brings interactivity to websites. Without it,
+                        pages would be static and boring.
+                    </p>
+                    <p>
+                        It allows developers to manipulate the DOM, handle events,
+                        and build dynamic applications.
+                    </p>
+                    <footer>
+                        <time datetime="2026-06-01">1 June 2026</time>
+                        <a href="blog.html" class="read-more">Read more &rarr;</a>
+                    </footer>
+                </div>
+            </article>
+        </main>
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside>
+            <section class="profile">
+                <h3>About Me</h3>
+                <div class="profile-header">
+                    <img src="Patryk.jpeg" alt="Photo of Patryk Grudziński" class="avatar">
+                    <div class="profile-title">
+                        <h4>Patryk Grudziński</h4>
+                        <p class="role">Computer Science Student</p>
+                    </div>
+                </div>
+                <p class="profile-bio">
+                    I am a computer science student passionate about web development,
+                    machine learning, and building real-world projects.
+                </p>
+            </section>
+
+            <section>
+                <h3>Recent Posts</h3>
+                <ul class="recent-posts">
+                    <li><a href="blog.html">Understanding HTML Semantic Elements</a></li>
+                    <li><a href="blog.html">My Journey Learning Web Development</a></li>
+                    <li><a href="blog.html">Why JavaScript Matters</a></li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Categories</h3>
+                <div class="tags-cloud">
+                    <a href="blog.html">HTML</a>
+                    <a href="blog.html">CSS</a>
+                    <a href="blog.html">JavaScript</a>
+                    <a href="blog.html">Career Tips</a>
+                </div>
+            </section>
+        </aside>
+
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="main-footer">
+        <p>© 2026 My Personal Blog. All rights reserved.</p>
+        <p>Working email: <a href="mailto:info@gmail.com">patryk25grudzinski@gmail.com</a></p>
+        <p>
+            Follow me:
+            <a href="#">LinkedIn</a> |
+            <a href="#">GitHub</a>
+        </p>
+    </footer>
+
+</body>
+</html>
