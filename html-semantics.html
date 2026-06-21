@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding HTML Semantic Elements - My Blog</title>
+    <link rel="stylesheet" href="../style.css"> <!-- Zakładam, że tak nazywa się Twój plik CSS -->
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Understanding HTML Semantic Elements</h1>
+            <p>Published on 18 June 2026 by Patryk Grudziński</p>
+        </header>
+
+        <article class="full-post">
+            <p>When I first started learning web development, my code was a massive jungle of <code>&lt;div&gt;</code> elements. Everything was a div, and honestly, it felt messy. That was until I discovered semantic HTML.</p>
+            
+            <h2>What is Semantic HTML?</h2>
+            <p>Semantic elements are HTML tags that clearly describe their meaning to both the browser and the developer. Instead of using a generic <code>&lt;div id="header"&gt;</code>, we use <code>&lt;header&gt;</code>. Instead of a div for navigation, we use <code>&lt;nav&gt;</code>.</p>
+
+            <h2>Why should you care?</h2>
+            <ul>
+                <li><strong>SEO (Search Engine Optimization):</strong> Search engines like Google use spiders to crawl your website. Semantic tags help them understand what parts of your page are actually important.</li>
+                <li><strong>Accessibility (A11y):</strong> Screen readers for visually impaired users rely on these tags to navigate the page properly.</li>
+                <li><strong>Cleaner Code:</strong> It is significantly easier to read and maintain code that uses <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, and <code>&lt;aside&gt;</code>.</li>
+            </ul>
+
+            <blockquote>
+                "Clean code always looks like it was written by someone who cares." — Michael Feathers
+            </blockquote>
+
+            <p>Moving forward, my goal is to completely banish "div-soup" from my repositories and write clean, semantic code from day one.</p>
+        </article>
+
+        <footer>
+            <a href="../blog.html" class="back-btn">← Back to Blog</a>
+        </footer>
+    </div>
+</body>
+</html>
