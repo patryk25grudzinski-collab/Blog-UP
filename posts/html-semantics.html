@@ -3,14 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Understanding HTML Semantic Elements - My Blog</title>
-    <link rel="stylesheet" href="../style.css"> <!-- Zakładam, że tak nazywa się Twój plik CSS -->
+    <title>Understanding HTML Semantic Elements - Blog</title>
+    <style>
+        /* --- RESET AND GLOBAL STYLES --- */
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #0f172a 100%);
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --accent-color: #f97316; /* Perfect Orange */
+            --accent-hover: #ea580c;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg-gradient);
+            background-attachment: fixed;
+            color: #f1f5f9; /* Light text on dark background */
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        /* --- ARTICLE CONTAINER --- */
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #151f32; /* Sleek dark card panel to match your navigation */
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        header {
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 1.2;
+        }
+
+        header .meta {
+            color: #94a3b8;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+
+        /* --- POST CONTENT STYLES --- */
+        .full-post p {
+            color: #cbd5e1;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .full-post h2 {
+            font-size: 1.75rem;
+            color: #ffffff;
+            margin: 35px 0 15px 0;
+            font-weight: 600;
+        }
+
+        .full-post ul {
+            margin-left: 25px;
+            margin-bottom: 25px;
+        }
+
+        .full-post li {
+            color: #cbd5e1;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .full-post strong {
+            color: var(--accent-color); /* Highlights key points in signature orange */
+        }
+
+        .full-post blockquote {
+            border-left: 4px solid var(--accent-color);
+            padding: 20px;
+            background: rgba(249, 115, 22, 0.1);
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
+
+        code {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 3px 6px;
+            border-radius: 6px;
+            color: #f1f5f9;
+            font-family: monospace;
+            font-size: 0.95rem;
+        }
+
+        /* --- FOOTER BACK BUTTON --- */
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .back-btn {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        .back-btn:hover {
+            color: var(--accent-hover);
+            transform: translateX(-4px); /* Sleek shift animation on hover */
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
+
+    <div class="article-container">
         <header>
             <h1>Understanding HTML Semantic Elements</h1>
-            <p>Published on 18 June 2026 by Patryk Grudziński</p>
+            <div class="meta">Published on 18 June 2026 by Patryk Grudziński</div>
         </header>
 
         <article class="full-post">
@@ -34,8 +163,9 @@
         </article>
 
         <footer>
-            <a href="../blog.html" class="back-btn">← Back to Blog</a>
+            <a href="../blog.html" class="back-btn">&larr; Back to Blog</a>
         </footer>
     </div>
+
 </body>
 </html>
